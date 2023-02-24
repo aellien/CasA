@@ -20,11 +20,15 @@ startTime = datetime.now()
 
 # paths, lists & variables
 
-path_scripts = '/home/ellien/CasA/scripts'
-path_spectra = '/home/ellien/CasA/test'
-path_data    = '/home/ellien/CasA/test'
+#path_scripts = '/home/ellien/CasA/scripts'
+#path_spectra = '/home/ellien/CasA/test'
+#path_data    = '/home/ellien/CasA/test'
 
-path_bxa     = '/home/ellien/CasA/test/acis_bxa_test_powvnei/'
+path_scripts = '/home/ellien/CasA/CasA'
+path_data    = '/n03data/ellien/CasA/tests'
+
+#path_bxa     = '/home/ellien/CasA/test/acis_bxa_test_powvnei/'
+path_bxa = '/n03data/ellien/CasA/tests/acis_bxa_test_powvnei/'
 if os.path.isdir( path_bxa ) == False:
     os.makedirs( path_bxa, exist_ok = True )
 shutil.copyfile( os.path.abspath(__file__), os.path.join( path_bxa, 'input.script.py' ) )
