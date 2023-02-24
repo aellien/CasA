@@ -29,5 +29,5 @@ conda env list
 #which mpiexec
 
 #echo "mpiexec -n 36 ipython /home/ellien/Tycho/scripts/acis_bxa_region_${nr}_${mod}.py"
-mpiexec -n 8 ipython /home/ellien/CasA/CasA/acis_bxa_test_powvnei.py
+mpiexec -n 8 ipython /home/ellien/CasA/CasA/bxa/acis_bxa_test_powvnei.py
 #mpiexec -n 48 ipython /home/ellien/Tycho/scripts/acis_bxa_ejecta_${nr}_${mod}.py
