@@ -26,6 +26,7 @@ startTime = datetime.now()
 
 path_scripts = '/home/ellien/CasA/CasA'
 path_data    = '/n03data/ellien/CasA/tests'
+path_spectra = '/n03data/ellien/CasA/tests'
 
 #path_bxa     = '/home/ellien/CasA/test/acis_bxa_test_powvnei/'
 path_bxa = '/n03data/ellien/CasA/tests/acis_bxa_test_powvnei/'
