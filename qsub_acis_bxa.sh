@@ -1,5 +1,5 @@
 #!/bin/bash
-#PBS -o /home/ellien/CasA/logs/log_acis_bxa_test.log
+#PBS -o /home/ellien/CasA/logs/log_acis_bxa_test_vnei.log
 #PBS -j oe
 #PBS -N bxa
 #PBS -l nodes=1:ppn=8,walltime=47:59:00
@@ -29,5 +29,5 @@ conda env list
 #which mpiexec
 
 #echo "mpiexec -n 36 ipython /home/ellien/Tycho/scripts/acis_bxa_region_${nr}_${mod}.py"
-mpiexec -n 8 ipython /home/ellien/CasA/CasA/bxa/acis_bxa_test_powvnei.py
+mpiexec -n 8 ipython /home/ellien/CasA/CasA/bxa/acis_bxa_test_vnei.py
 #mpiexec -n 48 ipython /home/ellien/Tycho/scripts/acis_bxa_ejecta_${nr}_${mod}.py
