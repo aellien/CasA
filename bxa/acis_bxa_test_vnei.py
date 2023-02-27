@@ -25,7 +25,7 @@ path_scripts = '/home/ellien/CasA/CasA'
 path_data    = '/n03data/ellien/CasA/tests'
 path_spectra = '/n03data/ellien/CasA/tests'
 
-path_bxa     = '/n03data/ellien/CasA/tests/out3/acis_bxa_test_freeab_8core_stepauto_vnei/'
+path_bxa     = '/n03data/ellien/CasA/tests/out3/acis_bxa_test_freeab_8core_stepsafe_vnei/'
 if os.path.isdir( path_bxa ) == False:
     os.makedirs( path_bxa, exist_ok = True )
 shutil.copyfile( os.path.abspath(__file__), os.path.join( path_bxa, 'input.script.py' ) )
@@ -119,6 +119,6 @@ for k in range( 1, model.nParameters + 1 ):
 
 # bxa solver
 solver = bxa.BXASolver( transformations = transformations, outputfiles_basename = path_bxa )
-results = solver.run( resume = 'overwrite', log_dir = os.path.join( path_bxa, 'logs' ), speed = 'auto', frac_remain = 0.5 )
+results = solver.run( resume = 'overwrite', log_dir = os.path.join( path_bxa, 'logs' ), speed = 'safe', frac_remain = 0.5, max_num_improvement_loops = 0 )
 
 print(datetime.now() - startTime)
