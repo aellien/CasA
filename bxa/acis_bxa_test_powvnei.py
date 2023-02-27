@@ -29,7 +29,7 @@ path_data    = '/n03data/ellien/CasA/tests'
 path_spectra = '/n03data/ellien/CasA/tests'
 
 #path_bxa     = '/home/ellien/CasA/test/acis_bxa_test_powvnei/'
-path_bxa = '/n03data/ellien/CasA/tests/acis_bxa_test_powvnei/'
+path_bxa = '/n03data/ellien/CasA/tests/out2/acis_bxa_test_powvnei/'
 if os.path.isdir( path_bxa ) == False:
     os.makedirs( path_bxa, exist_ok = True )
 shutil.copyfile( os.path.abspath(__file__), os.path.join( path_bxa, 'input.script.py' ) )
@@ -62,8 +62,8 @@ model_name = 'Tbabs(pow+vnei)'
 #________________________________________________________________________
 
 list_input_par  = [ [     0.7, 0.001,    0.1,    0.1,    4.0,   4.0 ],
-                [           3,  0.01,      1,      1,      4,     4 ],
-                [       1e-02,  0.01,  1e-07,  1e-07,  1e-02, 1e-02 ],
+                [           3,  0.01,    1.5,    1.5,    3.5,   3.5 ],
+                [       1e-04,  0.01,  1e-06,  1e-06,  1e-03, 1e-03 ],
                 [         1.0,  0.01,    0.1,    0.1,  5e+00, 5e+00 ],
                 [           1,  0.01,  1e-01,  1e-01,  1e+05, 1e+05 ],
                 [           1,  0.01,  1e-01,  1e-01,  1e+05, 1e+05 ],
@@ -78,9 +78,9 @@ list_input_par  = [ [     0.7, 0.001,    0.1,    0.1,    4.0,   4.0 ],
                 [           1,  0.01,  1e-01,  1e-01,  1e+03, 1e+03 ],
                 [           1,  0.01,  1e-01,  1e-01,  1e+03, 1e+03 ],
                 [           1,  0.01,  1e-01,  1e-01,  1e+03, 1e+03 ],
-                [       1e+09, 1e+10,  1e+08,  1e+08,  3e+12, 3e+12 ],
+                [       1e+10, 1e+10,  5e+09,  5e+09,  8e+11, 8e+11 ],
                 [           0,  0.01, -0.999, -0.999,     10,    10 ],
-                [       1e-07,  0.01,  1e-07,  1e-07,  1e-01, 1e-01 ] ]
+                [       1e-04,  0.01,  1e-06,  1e-06,  1e-03, 1e-03 ] ]
 
 model = xs.Model( model_name )
 
@@ -116,9 +116,9 @@ spectrum.ignore( "**-0.5,8.-**" )
 # bxa priors
 transformations = []
 for k in range( 1, model.nParameters + 1 ):
-    if k in [  3, 9, 10, 11, 12, 13, 14, 15, 16, 18, 20 ]:
+    if k in [  3, 18, 20 ]:
         transformations.append( bxa.create_loguniform_prior_for( model, model(k) ) )
-    elif k in [ 5, 6, 7, 8, 17, 19 ]:
+    elif k in [ 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 19 ]:
         pass
     else:
         transformations.append( bxa.create_uniform_prior_for( model, model(k) ) )
