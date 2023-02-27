@@ -119,6 +119,6 @@ for k in range( 1, model.nParameters + 1 ):
 
 # bxa solver
 solver = bxa.BXASolver( transformations = transformations, outputfiles_basename = path_bxa )
-results = solver.run( resume = 'overwrite', log_dir = os.path.join( path_bxa, 'logs' ) )
+results = solver.run( resume = 'overwrite', log_dir = os.path.join( path_bxa, 'logs' ), speed = 'auto', frac_remain = 0.5 )
 
 print(datetime.now() - startTime)
