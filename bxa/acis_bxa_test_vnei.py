@@ -25,7 +25,7 @@ path_scripts = '/home/ellien/CasA/CasA'
 path_data    = '/n03data/ellien/CasA/tests'
 path_spectra = '/n03data/ellien/CasA/tests'
 
-path_bxa     = '/n03data/ellien/CasA/tests/out3/acis_bxa_test_vnei_1core/'
+path_bxa     = '/n03data/ellien/CasA/tests/out3/acis_bxa_test_freeab_8core_vnei/'
 if os.path.isdir( path_bxa ) == False:
     os.makedirs( path_bxa, exist_ok = True )
 shutil.copyfile( os.path.abspath(__file__), os.path.join( path_bxa, 'input.script.py' ) )
@@ -58,19 +58,19 @@ model_name = 'Tbabs(vnei)'
 
 list_input_par = [ [      0.7, 0.001,    0.1,    0.1,    4.0,   4.0 ],
                 [         1.0,  0.01,    0.1,    0.1,  5e+00, 5e+00 ],
-                [           1,  0.01,  1e-01,  1e-01,  1e+05, 1e+05 ],
-                [           1,  0.01,  1e-01,  1e-01,  1e+05, 1e+05 ],
-                [           1,  0.01,  1e-01,  1e-01,  1e+05, 1e+05 ],
-                [           1,  0.01,  1e-01,  1e-01,  1e+04, 1e+04 ],
-                [           1,  0.01,  1e-01,  1e-01,  1e+03, 1e+03 ],
-                [           1,  0.01,  1e-01,  1e-01,  1e+03, 1e+03 ],
-                [           1,  0.01,  1e-01,  1e-01,  1e+03, 1e+03 ],
-                [           1,  0.01,  1e-01,  1e-01,  1e+03, 1e+03 ],
-                [           1,  0.01,  1e-01,  1e-01,  1e+03, 1e+03 ],
-                [           1,  0.01,  1e-01,  1e-01,  1e+03, 1e+03 ],
-                [           1,  0.01,  1e-01,  1e-01,  1e+03, 1e+03 ],
-                [           1,  0.01,  1e-01,  1e-01,  1e+03, 1e+03 ],
-                [           1,  0.01,  1e-01,  1e-01,  1e+03, 1e+03 ],
+                [           1,  0.01,  1e-01,  1e-01,  1e+01, 1e+01 ],
+                [           1,  0.01,  1e-01,  1e-01,  1e+01, 1e+01 ],
+                [           1,  0.01,  1e-01,  1e-01,  1e+01, 1e+01 ],
+                [           1,  0.01,  1e-01,  1e-01,  1e+01, 1e+01 ],
+                [           1,  0.01,  1e-01,  1e-01,  1e+01, 1e+01 ],
+                [           1,  0.01,  1e-01,  1e-01,  1e+01, 1e+01 ],
+                [           1,  0.01,  1e-01,  1e-01,  1e+01, 1e+01 ],
+                [           1,  0.01,  1e-01,  1e-01,  1e+01, 1e+01 ],
+                [           1,  0.01,  1e-01,  1e-01,  1e+01, 1e+01 ],
+                [           1,  0.01,  1e-01,  1e-01,  1e+01, 1e+01 ],
+                [           1,  0.01,  1e-01,  1e-01,  1e+01, 1e+01 ],
+                [           1,  0.01,  1e-01,  1e-01,  1e+01, 1e+01 ],
+                [           1,  0.01,  1e-01,  1e-01,  1e+01, 1e+01 ],
                 [       1e+10, 1e+10,  5e+09,  5e+09,  8e+11, 8e+11 ],
                 [           0,  0.01, -0.999, -0.999,     10,    10 ],
                 [       1e-02,  0.01,  1e-04,  1e-04,  1e-01, 1e-01 ] ]
@@ -110,9 +110,9 @@ spectrum.ignore( "**-0.5,7.-**" )
 # bxa priors
 transformations = []
 for k in range( 1, model.nParameters + 1 ):
-    if k in [ 16, 18 ]:
+    if k in [ 8, 9, 10, 11, 12, 13, 14, 16, 18 ]:
         transformations.append( bxa.create_loguniform_prior_for( model, model(k) ) )
-    elif k in [ 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 17 ]:
+    elif k in [ 3, 4, 5, 6, 7, 15, 17 ]:
         pass
     else:
         transformations.append( bxa.create_uniform_prior_for( model, model(k) ) )
