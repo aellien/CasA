@@ -25,7 +25,7 @@ path_scripts = '/home/ellien/CasA/CasA'
 path_data    = '/n03data/ellien/CasA/tests'
 path_spectra = '/n03data/ellien/CasA/tests'
 
-path_bxa     = '/n03data/ellien/CasA/tests/out3/acis_bxa_test_freeab_8core_step10_vnei/'
+path_bxa     = '/n03data/ellien/CasA/tests/out3/acis_bxa_test_freeab_8core_step10_optbin_vnei/'
 if os.path.isdir( path_bxa ) == False:
     os.makedirs( path_bxa, exist_ok = True )
 shutil.copyfile( os.path.abspath(__file__), os.path.join( path_bxa, 'input.script.py' ) )
@@ -98,13 +98,16 @@ os.chdir( path_spectra ) # Necessary to bypass the abscence of absolute path in
 xs.AllData -= "*" # Clear all previous spectra.
 
 # xspec read spectrum
-infilename = 'spec_test_bayes_2x2arcsec.pi'
+infilename = 'opt_spec_test_bayes_2x2arcsec.pi'
+#infilename = 'spec_test_bayes_2x2arcsec_rb25.pi'
+#infilename = 'spec_test_bayes_2x2arcsec.pi'
+
 infilepath = os.path.join( path_spectra, infilename )
 
 spectrum = xs.Spectrum( infilepath )
 os.chdir( path_scripts ) # go back to script directory.
 
-spectrum.ignore( "**-0.5,7.-**" )
+spectrum.ignore( "**-0.5,8.-**" )
 #SPECTRUM.ignore( "1-35,480-1024" )
 
 # bxa priors
