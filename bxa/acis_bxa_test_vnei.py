@@ -25,7 +25,7 @@ path_scripts = '/home/ellien/CasA/CasA'
 path_data    = '/n03data/ellien/CasA/tests'
 path_spectra = '/n03data/ellien/CasA/tests'
 
-path_bxa     = '/n03data/ellien/CasA/tests/out3/acis_bxa_test_3x3_freeab_8core_step10_unbin_vnei/'
+path_bxa     = '/n03data/ellien/CasA/tests/out3/acis_bxa_test_3x3_freeab_1core_step10_unbin_vnei/'
 if os.path.isdir( path_bxa ) == False:
     os.makedirs( path_bxa, exist_ok = True )
 shutil.copyfile( os.path.abspath(__file__), os.path.join( path_bxa, 'input.script.py' ) )
