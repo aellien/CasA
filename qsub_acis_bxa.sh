@@ -1,5 +1,5 @@
 #!/bin/bash
-#PBS -o /home/ellien/CasA/logs/log_acis_bxa_test_1core_step10_rb25_vnei.log
+#PBS -o /home/ellien/CasA/logs/log_acis_bxa_test_1x1_1core_step10_rb25_vnei.log
 #PBS -j oe
 #PBS -N bxa
 #PBS -l nodes=1:ppn=1,walltime=47:59:00
