@@ -25,9 +25,11 @@ path_priors  = '/n03data/ellien/CasA/data/selected'
 path_spectra = '/n03data/ellien/CasA/data/opt_selected'
 
 spectrum = sys.argv[1]
+num_reg = spectrum.split('.')[0]
+num_reg = num_reg[19:]
 
 #path_bxa     = '/home/ellien/CasA/test/acis_bxa_test_powvnei/'
-path_bxa = '/n03data/ellien/CasA/analysis/out1/acis_bxa_opt_selected_vneivneivneipow/'
+path_bxa = '/n03data/ellien/CasA/analysis/out1/acis_bxa_opt_selected_vneivneivneipow_%03d/' %num_reg
 if os.path.isdir( path_bxa ) == False:
     os.makedirs( path_bxa, exist_ok = True )
 shutil.copyfile( os.path.abspath(__file__), os.path.join( path_bxa, 'input.script.py' ) )
@@ -122,7 +124,7 @@ list_input_par  = [ [     0.7, 0.001,    0.1,    0.1,    4.0,   4.0 ],
                   [    1e+04,  0.01,  1e-01,  1e-01,  1e+03, 1e+05 ],
                   [    1e+04,  0.01,  1e+02,  1e+02,  1e+05, 1e+05 ],
                   [    1e+04,  0.01,  1e+02,  1e+02,  1e+05, 1e+05 ],
-                  [    1e+04,  0.01,  1e+02,  1e+02,  1e+05, 1e+05 ],
+                  [    3e+04,  0.01,  1e+02,  1e+02,  1e+05, 1e+05 ],
                   [        0,  0.01,      0,      0,  1e+03, 1e+03 ],
                   [        0,  0.01,      0,      0,  1e+03, 1e+03 ],
                   [    1e+10, 1e+10,  5e+09,  5e+09,  8e+11, 8e+11 ],
