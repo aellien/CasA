@@ -181,7 +181,7 @@ spectrum.ignore( "**-0.5,8.-**" )
 # bxa priors
 transformations = []
 for k in range( 1, model.nParameters + 1 ):
-    if k in [ 8, 9, 16, 18, 28, 29, 30, 33, 34, 50, 52, 54 ]:
+    if k in [ 8, 9, 16, 18, 28, 29, 30, 33, 35, 50, 52, 54 ]:
         transformations.append( bxa.create_loguniform_prior_for( model, model(k) ) )
     elif k in [ 1, 2, 19, 36, 53 ]:
         transformations.append( bxa.create_uniform_prior_for( model, model(k) ) )
