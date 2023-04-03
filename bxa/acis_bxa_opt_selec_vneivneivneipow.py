@@ -29,7 +29,7 @@ num_reg = spectrum.split('.')[0]
 num_reg = num_reg[19:]
 
 #path_bxa     = '/home/ellien/CasA/test/acis_bxa_test_powvnei/'
-path_bxa = '/n03data/ellien/CasA/analysis/out1/acis_bxa_opt_selected_vneivneivneipow_%03d/' %num_reg
+path_bxa = '/n03data/ellien/CasA/analysis/out1/acis_bxa_opt_selected_vneivneivneipow_%03d/' %int(num_reg)
 if os.path.isdir( path_bxa ) == False:
     os.makedirs( path_bxa, exist_ok = True )
 shutil.copyfile( os.path.abspath(__file__), os.path.join( path_bxa, 'input.script.py' ) )
