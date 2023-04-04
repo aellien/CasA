@@ -67,7 +67,7 @@ def find_list_input_par( path_list_input ):
 
     return list_input_par
 
-def make_qdp( path_bxa, path_spectra, path_scripts, model_name, display = False ):
+def make_qdp( path_bxa, path_spectra, path_scripts, model_name, spec_fn, display = True ):
 
     # Read list_input_par in input script
     print(path_bxa)
@@ -84,8 +84,8 @@ def make_qdp( path_bxa, path_spectra, path_scripts, model_name, display = False 
     results = json.load( file )
 
     paramnames = results['paramnames']
-    #paramvals = results['posterior']['mean']
-    paramvals = results['maximum_likelihood']['point']
+    paramvals = results['posterior']['mean']
+    #paramvals = results['maximum_likelihood']['point']
     logz = results['logz']
     logl = results['maximum_likelihood']['logl']
 
@@ -94,7 +94,7 @@ def make_qdp( path_bxa, path_spectra, path_scripts, model_name, display = False 
     os.chdir( path_spectra )
     xs.AllData -= "*"
 
-    spectrum = xs.Spectrum( 'spec_test_bayes_2x2arcsec.pi' )
+    spectrum = xs.Spectrum( spec_fn )
     spectrum.ignore( "**-0.5,8.-**" )
 
     # Model
@@ -104,22 +104,26 @@ def make_qdp( path_bxa, path_spectra, path_scripts, model_name, display = False 
 
     # Model parameter values
     for c in model.componentNames:
+
+        #import pdb; pdb.set_trace()
         for p in model.__dict__[c].parameterNames:
 
-            #print(p, model.__dict__[c].__dict__[p])
-            for i, ( bxapn, bxapv ) in enumerate(zip(paramnames, paramvals)):
+            if model.__dict__[c].__dict__[p].values[1] > 0:
 
-                bxapv = float(bxapv)
+                print(p, model.__dict__[c].__dict__[p])
+                for i, ( bxapn, bxapv ) in enumerate(zip(paramnames, paramvals)):
 
-                if bxapn[:3] == 'log':
-                    bxapn = bxapn[4:-1]
-                    bxapv = 10**bxapv
+                    bxapv = float(bxapv)
+                    print(bxapn, bxapv)
+                    if bxapn[:3] == 'log':
+                        bxapn = bxapn[4:-1]
+                        bxapv = 10**bxapv
 
-                if p == bxapn:
-                    model.__dict__[c].__dict__[p].values = bxapv
-                    paramnames.pop(i)
-                    paramvals.pop(i)
-                    break
+                    if p == bxapn:
+                        model.__dict__[c].__dict__[p].values = bxapv
+                        paramnames.pop(i)
+                        paramvals.pop(i)
+                        break
 
     # Plot with PyXspec
     os.chdir( path_bxa )
@@ -145,7 +149,7 @@ def make_qdp( path_bxa, path_spectra, path_scripts, model_name, display = False 
     xs.Plot.xAxis      = 'keV'
     xs.Plot.add        = True
     xs.Plot.background = False
-    xs.Plot.setRebin( minSig = 5, maxBins = 10, groupNum = -1, errType = 'quad' )
+    #xs.Plot.setRebin( minSig = 5, maxBins = 10, groupNum = -1, errType = 'quad' )
     xs.Plot.addCommand('wd %s' %( outfile ) )
     xs.Plot('ldata delchi')
     xs.Plot.commands = ()
@@ -154,7 +158,7 @@ def make_qdp( path_bxa, path_spectra, path_scripts, model_name, display = False 
 
     #cstat = xs.Fit.statistic
     dof = xs.Fit.dof
-    cstat = -2 * logl
+    cstat = -2 * logz
 
     return cstat, dof, logz
 
@@ -272,8 +276,8 @@ def z07(engs, params, flux):
 if __name__ == '__main__':
 
     # paths, lists & variables
-    path_bxa_list = glob.glob( '/home/ellien/CasA/test/out3/*' )
-    path_spectra = '/home/ellien/CasA/test'
+    path_bxa_list = glob.glob( '/home/ellien/CasA/analysis/out1/*' )
+    path_spectra = '/home/ellien/CasA/data/opt_selected'
     path_scripts = '/home/ellien/CasA/scripts'
 
     dic_models = { 'pow':'Tbabs(powerlaw)', \
@@ -314,7 +318,8 @@ if __name__ == '__main__':
                    'srcutneivnei':'Tbabs(srcut+nei+vnei)',\
                    'srcutpshockvnei':'Tbabs(srcut+pshock+vnei)',\
                    'srcutnpshockvnei':'Tbabs(srcut+npshock+vnei)',\
-                   'z07neivnei':'Tbabs(z07+nei+vnei)' }
+                   'z07neivnei':'Tbabs(z07+nei+vnei)',\
+                   'vneivneivneipow':'Tbabs(vnei+vnei+vnei+pow)' }
 
     # Add custom models
     myModelParInfo = ("PhoIndex  \"\" 1.1  -3.  -2.  9.  10.  0.01",
@@ -329,7 +334,10 @@ if __name__ == '__main__':
         print(path_bxa)
 
         dir = path_bxa.split('/')[-1]
-        model_name = dir.split('_')[-1]
+        model_name = dir.split('_')[-2]
+        num_reg = dir.split('_')[-1]
+        spec_fn = 'opt_spec_selected_%d.pi'%float(num_reg)
+
         try:
             model_xs = dic_models[model_name]
         except:
@@ -340,8 +348,8 @@ if __name__ == '__main__':
                 print('Key error with %s.' %(dir))
                 continue
 
-        stats = make_qdp( path_bxa, path_spectra, path_scripts, model_xs, display = False )
-        print(stats[0])
+        stats = make_qdp( path_bxa, path_spectra, path_scripts, model_xs, spec_fn, display = False )
+        print(stats)
         try:
             data, delchi = read_qdp( path_bxa )
         except:
