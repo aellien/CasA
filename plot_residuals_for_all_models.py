@@ -84,8 +84,8 @@ def make_qdp( path_bxa, path_spectra, path_scripts, model_name, spec_fn, display
     results = json.load( file )
 
     paramnames = results['paramnames']
-    paramvals = results['posterior']['mean']
-    #paramvals = results['maximum_likelihood']['point']
+    #paramvals = results['posterior']['mean']
+    paramvals = results['maximum_likelihood']['point']
     logz = results['logz']
     logl = results['maximum_likelihood']['logl']
 
@@ -276,7 +276,7 @@ def z07(engs, params, flux):
 if __name__ == '__main__':
 
     # paths, lists & variables
-    path_bxa_list = glob.glob( '/home/ellien/CasA/analysis/out1/*' )
+    path_bxa_list = glob.glob( '/home/ellien/CasA/analysis/out2/*' )
     path_spectra = '/home/ellien/CasA/data/opt_selected'
     path_scripts = '/home/ellien/CasA/scripts'
 
