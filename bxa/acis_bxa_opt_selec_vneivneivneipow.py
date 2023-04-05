@@ -25,7 +25,9 @@ path_priors  = '/n03data/ellien/CasA/data/selected'
 path_spectra = '/n03data/ellien/CasA/data/opt_selected'
 
 spectrum = sys.argv[1]
-num_reg = spectrum.split('.')[0][18:]
+# num_reg = spectrum.split('.')[0][18:] # opt_selected
+num_reg = spectrum.split('.')[0][14:] # selected
+
 
 #path_bxa     = '/home/ellien/CasA/test/acis_bxa_test_powvnei/'
 path_bxa = '/n03data/ellien/CasA/analysis/out3/acis_bxa_selected_vneivneivneipow_%03d/' %int(num_reg)
