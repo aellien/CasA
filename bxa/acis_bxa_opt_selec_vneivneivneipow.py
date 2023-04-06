@@ -25,7 +25,7 @@ path_priors  = '/n03data/ellien/CasA/data/selected'
 path_spectra = '/n03data/ellien/CasA/data/opt_selected'
 
 spectrum = sys.argv[1]
- num_reg = spectrum.split('.')[0][18:] # opt_selected
+num_reg = spectrum.split('.')[0][18:] # opt_selected
 #num_reg = spectrum.split('.')[0][14:] # selected
 
 
