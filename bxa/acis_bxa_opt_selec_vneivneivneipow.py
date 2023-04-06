@@ -25,12 +25,12 @@ path_priors  = '/n03data/ellien/CasA/data/selected'
 path_spectra = '/n03data/ellien/CasA/data/opt_selected'
 
 spectrum = sys.argv[1]
-# num_reg = spectrum.split('.')[0][18:] # opt_selected
-num_reg = spectrum.split('.')[0][14:] # selected
+ num_reg = spectrum.split('.')[0][18:] # opt_selected
+#num_reg = spectrum.split('.')[0][14:] # selected
 
 
 #path_bxa     = '/home/ellien/CasA/test/acis_bxa_test_powvnei/'
-path_bxa = '/n03data/ellien/CasA/analysis/out3/acis_bxa_selected_vneivneivneipow_%03d/' %int(num_reg)
+path_bxa = '/n03data/ellien/CasA/analysis/out3/acis_bxa_opt_selected_vneivneivneipow_%03d/' %int(num_reg)
 if os.path.isdir( path_bxa ) == False:
     os.makedirs( path_bxa, exist_ok = True )
 shutil.copyfile( os.path.abspath(__file__), os.path.join( path_bxa, 'input.script.py' ) )
@@ -193,7 +193,7 @@ for k in range( 1, model.nParameters + 1 ):
 
 # bxa solver
 solver = bxa.BXASolver( transformations = transformations, outputfiles_basename = path_bxa )
-results = solver.run( resume = True, log_dir = os.path.join( path_bxa, 'logs' ), speed = 10, frac_remain = 0.5, max_num_improvement_loops = 0 )
+results = solver.run( resume = True, log_dir = os.path.join( path_bxa, 'logs' ), speed = 30, frac_remain = 0.5 )#, max_num_improvement_loops = 0 )
 
 #plot_qq( solver, path_bxa )
 #plot_posterior_predictions( solver, path_bxa )
