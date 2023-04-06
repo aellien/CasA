@@ -29,7 +29,7 @@ num_reg = spectrum.split('.')[0][18:] # opt_selected
 #num_reg = spectrum.split('.')[0][14:] # selected
 
 
-path_bxa     = '/n03data/ellien/CasA/test/acis_bxa_opt_selected_vneivneivneipownei_%03d/' %int(num_reg)
+path_bxa     = '/n03data/ellien/CasA/tests/acis_bxa_opt_selected_vneivneivneipownei_%03d/' %int(num_reg)
 #path_bxa = '/n03data/ellien/CasA/analysis/out4/acis_bxa_opt_selected_vneivneivneipownei_%03d/' %int(num_reg)
 if os.path.isdir( path_bxa ) == False:
     os.makedirs( path_bxa, exist_ok = True )
