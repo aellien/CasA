@@ -196,7 +196,7 @@ transformations = []
 for k in range( 1, model.nParameters + 1 ):
     if k in [ 8, 9, 16, 18, 28, 29, 30, 33, 35, 50, 52, 54, 57, 59 ]:
         transformations.append( bxa.create_loguniform_prior_for( model, model(k) ) )
-    elif k in [ 1, 2, 19, 36, 53, 55 ]:
+    elif k in [ 1, 2, 19, 34, 36, 51, 53, 55 ]:
         transformations.append( bxa.create_uniform_prior_for( model, model(k) ) )
     else:
         pass
