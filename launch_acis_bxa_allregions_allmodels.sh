@@ -1,6 +1,6 @@
 #!/bin/bash
 
-for model in vneivneivneipow
+for model in vneivneivneipownei
 
 do
     for spectrum in /n03data/ellien/CasA/data/opt_selected/opt_spec_selected_*.pi
