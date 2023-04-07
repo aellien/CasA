@@ -29,7 +29,7 @@ num_reg = spectrum.split('.')[0][18:] # opt_selected
 #num_reg = spectrum.split('.')[0][14:] # selected
 
 
-path_bxa     = '/n03data/ellien/CasA/tests/acis_bxa_opt_selected_vneivneivneipownei_%03d/' %int(num_reg)
+path_bxa     = '/n03data/ellien/CasA/analysis/out5/acis_bxa_opt_selected_vneivneivneipownei_%03d/' %int(num_reg)
 #path_bxa = '/n03data/ellien/CasA/analysis/out4/acis_bxa_opt_selected_vneivneivneipownei_%03d/' %int(num_reg)
 if os.path.isdir( path_bxa ) == False:
     os.makedirs( path_bxa, exist_ok = True )
@@ -134,7 +134,7 @@ list_input_par  = [ [     0.7, 0.001,    0.1,    0.1,    4.0,   4.0 ],
                   [        0, -0.01,      0,      0,  1e+03, 1e+03 ],
                   [        0, -0.01,      0,      0,  1e+03, 1e+03 ],
                   [    1e+10, 1e+10,  5e+09,  5e+09,  8e+11, 8e+11 ],
-                  [        0, -0.01, -0.999, -0.999,     10,    10 ],
+                  [        0,  0.01,   -0.3,   -0.3,    0.3,   0.3 ],
                   [    1e-07,  0.01,  1e-10,  1e-10,  1e-01, 1e-01 ],
                   [      2.0,  0.01,    0.1,    0.1,  5e+00, 5e+00 ],
                   [        1, -0.01,  1e-01,  1e-01,  1e+05, 1e+05 ],
@@ -151,7 +151,7 @@ list_input_par  = [ [     0.7, 0.001,    0.1,    0.1,    4.0,   4.0 ],
                   [    1e+04, -0.01,  1e-01,  1e-01,  1e+03, 1e+05 ],
                   [    1e+04, -0.01,  1e-01,  1e-01,  1e+03, 1e+05 ],
                   [    1e+10, 1e+10,  5e+09,  5e+09,  8e+11, 8e+11 ],
-                  [        0, -0.01, -0.999, -0.999,     10,    10 ],
+                  [        0,  0.01,   -0.3,   -0.3,    0.3,   0.3 ],
                   [    1e-07,  0.01,  1e-10,  1e-10,  1e-01, 1e-01 ],
                   [        3,  0.01,    1.5,    1.5,    3.5,   3.5 ],
                   [    1e-06,  0.01,  1e-10,  1e-10,  1e-01, 1e-01 ],

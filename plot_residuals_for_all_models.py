@@ -276,7 +276,7 @@ def z07(engs, params, flux):
 if __name__ == '__main__':
 
     # paths, lists & variables
-    path_bxa_list = glob.glob( '/home/ellien/CasA/analysis/out3/*' )
+    path_bxa_list = glob.glob( '/home/ellien/CasA/test/*001' )
     path_spectra = '/home/ellien/CasA/data/opt_selected'
     path_scripts = '/home/ellien/CasA/scripts'
 
@@ -319,7 +319,8 @@ if __name__ == '__main__':
                    'srcutpshockvnei':'Tbabs(srcut+pshock+vnei)',\
                    'srcutnpshockvnei':'Tbabs(srcut+npshock+vnei)',\
                    'z07neivnei':'Tbabs(z07+nei+vnei)',\
-                   'vneivneivneipow':'Tbabs(vnei+vnei+vnei+pow)' }
+                   'vneivneivneipow':'Tbabs(vnei+vnei+vnei+pow)', \
+                   'vneivneivneipownei':'Tbabs(vnei+vnei+vnei+pow+nei)'}
 
     # Add custom models
     myModelParInfo = ("PhoIndex  \"\" 1.1  -3.  -2.  9.  10.  0.01",
@@ -336,7 +337,7 @@ if __name__ == '__main__':
         dir = path_bxa.split('/')[-1]
         model_name = dir.split('_')[-2]
         num_reg = dir.split('_')[-1]
-        spec_fn = 'spec_selected_%d.pi'%float(num_reg)
+        spec_fn = 'opt_spec_selected_%d.pi'%float(num_reg)
 
         try:
             model_xs = dic_models[model_name]
