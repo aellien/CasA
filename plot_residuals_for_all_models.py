@@ -276,7 +276,7 @@ def z07(engs, params, flux):
 if __name__ == '__main__':
 
     # paths, lists & variables
-    path_bxa_list = glob.glob( '/home/ellien/CasA/test/*001' )
+    path_bxa_list = glob.glob( '/home/ellien/CasA/analysis/out5/*' )
     path_spectra = '/home/ellien/CasA/data/opt_selected'
     path_scripts = '/home/ellien/CasA/scripts'
 
