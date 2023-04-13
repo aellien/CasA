@@ -194,7 +194,7 @@ for k in range( 1, model.nParameters + 1 ):
 
 # bxa solver
 solver = bxa.BXASolver( transformations = transformations, outputfiles_basename = path_bxa )
-results = solver.run( resume = True, log_dir = os.path.join( path_bxa, 'logs' ), speed = 30, frac_remain = 0.5 )#, max_num_improvement_loops = 0 )
+results = solver.run( resume = True, log_dir = os.path.join( path_bxa, 'logs' ), speed = 10, frac_remain = 0.5, max_num_improvement_loops = 0 )
 
 #plot_qq( solver, path_bxa )
 #plot_posterior_predictions( solver, path_bxa )
