@@ -25,12 +25,13 @@ path_priors  = '/n03data/ellien/CasA/data/selected'
 path_spectra = '/n03data/ellien/CasA/data/opt_selected'
 
 spectrum = sys.argv[1]
-num_reg = spectrum.split('.')[0][18:] # opt_selected
+#num_reg = spectrum.split('.')[0][18:] # opt_selected
 #num_reg = spectrum.split('.')[0][14:] # selected
+num_reg = spectrum.split('.')[0][26:] # opt_selected_3x3_within_20x20
 
 
 #path_bxa     = '/home/ellien/CasA/test/acis_bxa_test_powvnei/'
-path_bxa = '/n03data/ellien/CasA/analysis/out7/acis_bxa_opt_spec_3x3_within_20x20_vneivneivneipow_%03d/' %int(num_reg)
+path_bxa = '/n03data/ellien/CasA/analysis/out7/acis_bxa_opt_spec_3x3_within_20x20_vneivneivneipow_%s/' %num_reg
 if os.path.isdir( path_bxa ) == False:
     os.makedirs( path_bxa, exist_ok = True )
 shutil.copyfile( os.path.abspath(__file__), os.path.join( path_bxa, 'input.script.py' ) )
