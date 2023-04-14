@@ -276,8 +276,8 @@ def z07(engs, params, flux):
 if __name__ == '__main__':
 
     # paths, lists & variables
-    path_bxa_list = glob.glob( '/home/ellien/CasA/analysis/out5/*' )
-    path_spectra = '/home/ellien/CasA/data/opt_selected'
+    path_bxa_list = glob.glob( '/home/ellien/CasA/analysis/out7/*' )
+    path_spectra = '/home/ellien/CasA/data/Box_3x3_within_20x20'
     path_scripts = '/home/ellien/CasA/scripts'
 
     dic_models = { 'pow':'Tbabs(powerlaw)', \
@@ -335,15 +335,15 @@ if __name__ == '__main__':
         print(path_bxa)
 
         dir = path_bxa.split('/')[-1]
-        model_name = dir.split('_')[-2]
-        num_reg = dir.split('_')[-1]
-        spec_fn = 'opt_spec_selected_%d.pi'%float(num_reg)
+        model_name = dir.split('_')[-3]
+        num_reg = dir[-3:]  #dir.split('_')[-1]
+        spec_fn = 'opt_spec_3x3_within_20x20_%s.pi'%num_reg
 
         try:
             model_xs = dic_models[model_name]
         except:
             try:
-                model_name = dir.split('_')[-2]
+                model_name = dir.split('_')[-3]
                 model_xs = dic_models[model_name]
             except:
                 print('Key error with %s.' %(dir))
