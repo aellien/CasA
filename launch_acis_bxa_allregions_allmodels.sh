@@ -1,6 +1,6 @@
 #!/bin/bash
 
-for model in pownei
+for model in vneivneivneipownei
 
 do
     for spectrum in /n03data/ellien/CasA/data/Box_3x3_within_20x20/opt_spec_3x3_within_20x20_*.pi
