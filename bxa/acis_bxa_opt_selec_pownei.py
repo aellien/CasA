@@ -69,7 +69,7 @@ for k in range( 1, model.nParameters + 1 ):
 ncomp = len( model.componentNames )
 
 # xspec xset parameters
-xs.Xset.abund = "lpgp"
+xs.Xset.abund = "angr"
 xs.Xset.cosmo = "70 0 0.73"
 xs.Xset.xsect = "bcmc"
 
