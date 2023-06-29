@@ -27,7 +27,7 @@ path_spectra = '/n03data/ellien/CasA/data/Box_3x3_within_20x20'
 spectrum = sys.argv[1]
 #num_reg = spectrum.split('.')[0][18:] # opt_selected
 #num_reg = spectrum.split('.')[0][14:] # selected
-num_reg = spectrum.split('.')[0][26:] # opt_selected_3x3_within_20x20
+num_reg = spectrum.split('.')[0][-3:] # opt_selected_3x3_within_20x20
 
 
 path_bxa     = '/n03data/ellien/CasA/analysis/out8/acis_bxa_opt_spec_3x3_within_20x20_pownei_%03d/' %int(num_reg)
