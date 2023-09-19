@@ -8,7 +8,6 @@ import matplotlib.pyplot as plt
 import os
 import json
 import glob
-import re
 from bxa.xspec.solver import XSilence
 from matplotlib.offsetbox import AnchoredText
 
@@ -276,7 +275,7 @@ def z07(engs, params, flux):
 if __name__ == '__main__':
 
     # paths, lists & variables
-    path_bxa_list = glob.glob( '/home/ellien/CasA/analysis/out7/*' )
+    path_bxa_list = glob.glob( '/home/ellien/CasA/analysis/out9/*' )
     path_spectra = '/home/ellien/CasA/data/Box_3x3_within_20x20'
     path_scripts = '/home/ellien/CasA/scripts'
 
@@ -336,7 +335,7 @@ if __name__ == '__main__':
 
         dir = path_bxa.split('/')[-1]
         model_name = dir.split('_')[-3]
-        num_reg = dir[-3:]  #dir.split('_')[-1]
+        num_reg = dir[-3:]
         spec_fn = 'opt_spec_3x3_within_20x20_%s.pi'%num_reg
 
         try:

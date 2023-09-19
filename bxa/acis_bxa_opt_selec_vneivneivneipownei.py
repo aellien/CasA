@@ -22,7 +22,7 @@ startTime = datetime.now()
 # paths, lists & variables
 path_scripts = '/home/ellien/CasA/CasA'
 path_priors  = '/n03data/ellien/CasA/data/selected'
-path_spectra = '/n03data/ellien/CasA/data/Box_3x3_within_20x20'
+path_spectra = '/n03data/ellien/CasA/data/Test_spec4x4_within25x25'
 
 spectrum = sys.argv[1]
 num_reg = spectrum.split('.')[0][-3:] # spec_4x4_within_25x25_5_4
