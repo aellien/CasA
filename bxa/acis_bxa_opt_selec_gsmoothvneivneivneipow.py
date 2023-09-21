@@ -97,7 +97,7 @@ model_name = 'Tbabs(gsmooth(vnei+vnei+vnei)+pow)'
 
 
 list_input_par  = [[     0.7, 0.001,    0.1,    0.1,    4.0,   4.0 ],
-                  [        1,  0.01,  1e-03,  1e+00,  5e+00, 5e+00 ],
+                  [        1,  0.01,  1e-03,  1e-03,   0.15,  0.15 ],
                   [        1, -0.01,  1e-01,  1e-01,  1e+05, 1e+05 ],
                   [      2.0,  0.01,    0.1,    0.1,  5e+00, 5e+00 ],
                   [        1, -0.01,  1e-01,  1e-01,  1e+05, 1e+05 ],
@@ -186,9 +186,9 @@ spectrum.ignore( "**-0.5,8.-**" )
 # bxa priors
 transformations = []
 for k in range( 1, model.nParameters + 1 ):
-    if k in [ 10, 11, 18, 20, 30, 31, 33, 35, 37, 52, 54, 56 ]:
+    if k in [ 2, 10, 11, 18, 20, 30, 31, 33, 35, 37, 52, 54, 56 ]:
         transformations.append( bxa.create_loguniform_prior_for( model, model(k) ) )
-    elif k in [ 1, 3, 19, 21, 36, 38, 53, 55 ]:
+    elif k in [ 1, 4, 19, 21, 36, 38, 53, 55 ]:
         transformations.append( bxa.create_uniform_prior_for( model, model(k) ) )
     else:
         pass
