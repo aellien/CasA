@@ -3,7 +3,7 @@
 for model in gsmoothvneivneivneipow
 
 do
-    for spectrum in /n03data/ellien/CasA/data/Test_spec4x4_within25x25/*pi
+    for spectrum in /n03data/ellien/CasA/data/Test_spec4x4_within25x25/opt*4_1.pi
     do
         echo "Launch ${model} on region ${spectrum}"
         n=$(basename "$spectrum")
