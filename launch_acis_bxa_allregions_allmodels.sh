@@ -1,9 +1,9 @@
 #!/bin/bash
 
-for model in gsmoothvneivneivneipow
+for model in vneivneivneipownei
 
 do
-    for spectrum in /n03data/ellien/CasA/data/Test_spec4x4_within25x25/bin25*
+    for spectrum in /n03data/ellien/CasA/data/synth_spectra/Synth*
         do
         echo "Launch ${model} on region ${spectrum}"
         n=$(basename "$spectrum")
