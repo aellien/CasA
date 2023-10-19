@@ -22,13 +22,13 @@ startTime = datetime.now()
 # paths, lists & variables
 path_scripts = '/home/ellien/CasA/CasA'
 path_priors  = '/n03data/ellien/CasA/data/selected'
-path_spectra = '/n03data/ellien/CasA/data/Test_spec4x4_within25x25'
+path_spectra = '/n03data/ellien/CasA/data/synth_spectra'
 
 spectrum = sys.argv[1]
 num_reg = spectrum.split('.')[0][-3:] # spec_4x4_within_25x25_5_4
 
 
-path_bxa     = '/n03data/ellien/CasA/analysis/out9/acis_bxa_spec4x4_within25x25_vneivneivneipownei_%s/' %num_reg
+path_bxa     = '/n03data/ellien/CasA/analysis/out10/acis_bxa_spec4x4_within25x25_vneivneivneipownei_%s/' %num_reg
 if os.path.isdir( path_bxa ) == False:
     os.makedirs( path_bxa, exist_ok = True )
 shutil.copyfile( os.path.abspath(__file__), os.path.join( path_bxa, 'input.script.py' ) )
