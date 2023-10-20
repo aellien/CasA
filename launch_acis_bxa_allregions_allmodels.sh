@@ -1,6 +1,6 @@
 #!/bin/bash
 
-for model in vneivneivneipownei
+for model in vneivneipownei
 
 do
     for spectrum in /n03data/ellien/CasA/data/synth_spec/Synth*
